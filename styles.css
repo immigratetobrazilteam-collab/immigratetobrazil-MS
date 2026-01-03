@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #F0FFFF;
+    color: #00008B;
+}
+
+h1, h2 {
+    font-family: Adventure, serif;
+    color: #00BFFF;
+}
+
+a {
+    color: #32CD32;
+}
+
+section {
+    padding: 3rem;
+}
