@@ -1,15 +1,52 @@
-<nav class="mobile-nav" aria-label="Mobile navigation">
-    <button aria-expanded="false" aria-controls="mobile-menu">Menu</button>
-    <ul id="mobile-menu" hidden>
-        <li><a href="/">Home</a></li>
-        <li><a href="/services">Services</a></li>
-        <li><a href="/services/artistic-visa">Artistic Visa</a></li>
-        <li><a href="/ms">Explore Mato Grosso do Sul</a></li>
+<nav class="mobile-nav md:hidden" aria-label="Mobile navigation">
+    <button aria-expanded="false" aria-controls="mobile-menu" class="w-full px-4 py-2 bg-[#00BFFF] text-white rounded flex justify-between items-center">Menu <i class="fas fa-chevron-down"></i></button>
+    <ul id="mobile-menu" class="hidden flex flex-col bg-white shadow-md rounded-md mt-1 overflow-auto max-h-[80vh]">
+        <li><a href="/" class="block px-4 py-2 hover:bg-[#32CD32]/10">Home</a></li>
+        <li>
+            <button class="w-full text-left px-4 py-2 hover:bg-[#32CD32]/10 flex justify-between items-center" aria-expanded="false" aria-controls="services-sub">Services <i class="fas fa-chevron-down"></i></button>
+            <ul id="services-sub" class="hidden pl-4">
+                <li class="font-bold py-1">Travel Services</li>
+                
+                <li class="font-bold py-1 mt-2">Brazilian Visas</li>
+                <li><a href="/visas/artistic-visa" class="block py-2 pl-4 hover:bg-[#32CD32]/10" title="Artistic Visa">Artistic Visa</a></li>
+                <li class="font-bold py-1 mt-2">Residency Permits</li>
+                
+                <li class="font-bold py-1 mt-2">Citizenship & Naturalisation</li>
+                
+                <li class="font-bold py-1 mt-2">Other Services</li>
+                
+            </ul>
+        </li>
+        <li>
+            <button class="w-full text-left px-4 py-2 hover:bg-[#32CD32]/10 flex justify-between items-center" aria-expanded="false" aria-controls="explore-sub">Explore Mato Grosso do Sul <i class="fas fa-chevron-down"></i></button>
+            <ul id="explore-sub" class="hidden pl-4">
+                <li><a href="/explore/gruta-do-lago-azul-cave" class="block py-2 pl-4 hover:bg-[#32CD32]/10" title="Gruta do Lago Azul cave">Gruta do Lago Azul cave</a></li><li><a href="/explore/pantanal-lowlands" class="block py-2 pl-4 hover:bg-[#32CD32]/10" title="Pantanal lowlands">Pantanal lowlands</a></li><li><a href="/explore/morro-grande" class="block py-2 pl-4 hover:bg-[#32CD32]/10" title="Morro Grande">Morro Grande</a></li><li><a href="/explore/pantanal-lowlands-(covering-12-municipalities-with-forests,-natural-sand-banks,-savannahs,-open-pasture,-fields-and-bushes)" class="block py-2 pl-4 hover:bg-[#32CD32]/10" title="Pantanal lowlands (covering 12 municipalities with forests, natural sand banks, savannahs, open pasture, fields and bushes)">Pantanal lowlands (covering 12 municipalities with forests, natural sand banks, savannahs, open pasture, fields and bushes)</a></li><li><a href="/explore/bodoquena-mountain" class="block py-2 pl-4 hover:bg-[#32CD32]/10" title="Bodoquena mountain">Bodoquena mountain</a></li><li><a href="/explore/prehistoric-caves" class="block py-2 pl-4 hover:bg-[#32CD32]/10" title="prehistoric caves">prehistoric caves</a></li><li><a href="/explore/natural-rivers" class="block py-2 pl-4 hover:bg-[#32CD32]/10" title="natural rivers">natural rivers</a></li><li><a href="/explore/waterfalls" class="block py-2 pl-4 hover:bg-[#32CD32]/10" title="waterfalls">waterfalls</a></li><li><a href="/explore/swimming-pools" class="block py-2 pl-4 hover:bg-[#32CD32]/10" title="swimming pools">swimming pools</a></li><li><a href="/explore/tropic-of-capricorn" class="block py-2 pl-4 hover:bg-[#32CD32]/10" title="Tropic of Capricorn">Tropic of Capricorn</a></li><li><a href="/explore/cerrado-landscape-(savanna-formations-crossed-by-gallery-forests-and-stream-valleys,-humid-fields,-buriti-palm-paths,-alpine-pastures,-mesophytic-forests)" class="block py-2 pl-4 hover:bg-[#32CD32]/10" title="cerrado landscape (savanna formations crossed by gallery forests and stream valleys, humid fields, buriti palm paths, alpine pastures, mesophytic forests)">cerrado landscape (savanna formations crossed by gallery forests and stream valleys, humid fields, buriti palm paths, alpine pastures, mesophytic forests)</a></li><li><a href="/explore/tributaries-of-the-paraná-river" class="block py-2 pl-4 hover:bg-[#32CD32]/10" title="tributaries of the Paraná River">tributaries of the Paraná River</a></li>
+            </ul>
+        </li>
+        <li><a href="/contact" class="block px-4 py-2 hover:bg-[#32CD32]/10">Contact</a></li>
+        <li><a href="/faq" class="block px-4 py-2 hover:bg-[#32CD32]/10">FAQ</a></li>
+        <li><a href="/blog" class="block px-4 py-2 hover:bg-[#32CD32]/10">Blog</a></li>
+        <li><a href="/about" class="block px-4 py-2 hover:bg-[#32CD32]/10">About</a></li>
     </ul>
     <script>
-    document.querySelector('.mobile-nav button').addEventListener('click', function() {
-        this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'false' ? 'true' : 'false');
-        document.getElementById('mobile-menu').hidden = !document.getElementById('mobile-menu').hidden;
-    });
+        const menuBtn = document.querySelector('.mobile-nav button');
+        const menu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+            menuBtn.setAttribute('aria-expanded', !expanded);
+            menu.classList.toggle('hidden');
+            menuBtn.querySelector('i').classList.toggle('fa-chevron-down');
+            menuBtn.querySelector('i').classList.toggle('fa-chevron-up');
+        });
+        document.querySelectorAll('.mobile-nav li button').forEach(subBtn => {
+            subBtn.addEventListener('click', () => {
+                const expanded = subBtn.getAttribute('aria-expanded') === 'true';
+                subBtn.setAttribute('aria-expanded', !expanded);
+                const subMenu = document.getElementById(subBtn.getAttribute('aria-controls'));
+                subMenu.classList.toggle('hidden');
+                subBtn.querySelector('i').classList.toggle('fa-chevron-down');
+                subBtn.querySelector('i').classList.toggle('fa-chevron-up');
+            });
+        });
     </script>
 </nav>

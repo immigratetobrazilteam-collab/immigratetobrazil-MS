@@ -1,8 +1,39 @@
-<nav aria-label="Primary navigation">
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/services">Services</a></li>
-        <li><a href="/services/artistic-visa">Artistic Visa</a></li>
-        <li><a href="/ms">Explore Mato Grosso do Sul</a></li>
-    </ul>
+<nav aria-label="Primary navigation" class="bg-[#00BFFF] text-white shadow-md" itemscope itemtype="https://schema.org/SiteNavigationElement">
+    <div class="container mx-auto px-4">
+        <ul class="flex flex-wrap gap-4 py-4 justify-center md:justify-start">
+            <li><a href="/" class="px-4 py-2 hover:bg-white/10 rounded" title="Home page">Home</a></li>
+            <li class="relative group">
+                <a href="/services" class="px-4 py-2 hover:bg-white/10 rounded aria-haspopup="true" aria-expanded="false">Services</a>
+                <ul class="absolute hidden group-hover:block bg-white text-[#00008B] shadow-lg rounded-md p-4 min-w-max z-10">
+                    <li class="font-bold mb-1">Travel Services</li>
+                    
+                    <li class="font-bold mt-2 mb-1">Brazilian Visas</li>
+                    <li><a href="/visas/artistic-visa" class="block px-4 py-2 hover:bg-[#32CD32]/20" title="Artistic Visa">Artistic Visa</a></li>
+                    <li class="font-bold mt-2 mb-1">Residency Permits</li>
+                    
+                    <li class="font-bold mt-2 mb-1">Citizenship & Naturalisation</li>
+                    
+                    <li class="font-bold mt-2 mb-1">Other Services</li>
+                    
+                </ul>
+            </li>
+            <li class="relative group">
+                <a href="/ms" class="px-4 py-2 hover:bg-white/10 rounded aria-haspopup="true" aria-expanded="false">Explore Mato Grosso do Sul</a>
+                <ul class="absolute hidden group-hover:block bg-white text-[#00008B] shadow-lg rounded-md p-4 min-w-max z-10">
+                    <li><a href="/explore/gruta-do-lago-azul-cave" class="block px-4 py-2 hover:bg-[#32CD32]/20" title="Gruta do Lago Azul cave">Gruta do Lago Azul cave</a></li><li><a href="/explore/pantanal-lowlands" class="block px-4 py-2 hover:bg-[#32CD32]/20" title="Pantanal lowlands">Pantanal lowlands</a></li><li><a href="/explore/morro-grande" class="block px-4 py-2 hover:bg-[#32CD32]/20" title="Morro Grande">Morro Grande</a></li><li><a href="/explore/pantanal-lowlands-(covering-12-municipalities-with-forests,-natural-sand-banks,-savannahs,-open-pasture,-fields-and-bushes)" class="block px-4 py-2 hover:bg-[#32CD32]/20" title="Pantanal lowlands (covering 12 municipalities with forests, natural sand banks, savannahs, open pasture, fields and bushes)">Pantanal lowlands (covering 12 municipalities with forests, natural sand banks, savannahs, open pasture, fields and bushes)</a></li><li><a href="/explore/bodoquena-mountain" class="block px-4 py-2 hover:bg-[#32CD32]/20" title="Bodoquena mountain">Bodoquena mountain</a></li><li><a href="/explore/prehistoric-caves" class="block px-4 py-2 hover:bg-[#32CD32]/20" title="prehistoric caves">prehistoric caves</a></li><li><a href="/explore/natural-rivers" class="block px-4 py-2 hover:bg-[#32CD32]/20" title="natural rivers">natural rivers</a></li><li><a href="/explore/waterfalls" class="block px-4 py-2 hover:bg-[#32CD32]/20" title="waterfalls">waterfalls</a></li><li><a href="/explore/swimming-pools" class="block px-4 py-2 hover:bg-[#32CD32]/20" title="swimming pools">swimming pools</a></li><li><a href="/explore/tropic-of-capricorn" class="block px-4 py-2 hover:bg-[#32CD32]/20" title="Tropic of Capricorn">Tropic of Capricorn</a></li><li><a href="/explore/cerrado-landscape-(savanna-formations-crossed-by-gallery-forests-and-stream-valleys,-humid-fields,-buriti-palm-paths,-alpine-pastures,-mesophytic-forests)" class="block px-4 py-2 hover:bg-[#32CD32]/20" title="cerrado landscape (savanna formations crossed by gallery forests and stream valleys, humid fields, buriti palm paths, alpine pastures, mesophytic forests)">cerrado landscape (savanna formations crossed by gallery forests and stream valleys, humid fields, buriti palm paths, alpine pastures, mesophytic forests)</a></li><li><a href="/explore/tributaries-of-the-paraná-river" class="block px-4 py-2 hover:bg-[#32CD32]/20" title="tributaries of the Paraná River">tributaries of the Paraná River</a></li>
+                </ul>
+            </li>
+            <li><a href="/contact" class="px-4 py-2 hover:bg-white/10 rounded" title="Contact Us">Contact</a></li>
+            <li><a href="/faq" class="px-4 py-2 hover:bg-white/10 rounded" title="Frequently Asked Questions">FAQ</a></li>
+            <li><a href="/blog" class="px-4 py-2 hover:bg-white/10 rounded" title="Blog">Blog</a></li>
+            <li><a href="/about" class="px-4 py-2 hover:bg-white/10 rounded" title="About Us">About</a></li>
+        </ul>
+    </div>
+    <script>
+        // Desktop hover with keyboard support
+        document.querySelectorAll('.group > a[aria-haspopup]').forEach(toggle => {
+            toggle.addEventListener('focus', () => toggle.nextElementSibling.classList.add('block'));
+            toggle.addEventListener('blur', (e) => { if (!toggle.parentElement.contains(e.relatedTarget)) toggle.nextElementSibling.classList.remove('block'); });
+        });
+    </script>
 </nav>
